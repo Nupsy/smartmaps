@@ -1,0 +1,98 @@
+div#informationArea {
+	max-height: 530px;
+	overflow-y: scroll;
+}
+
+#backgroundPopup{
+	display: none;
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	border: 1px solid #cecece;
+	z-index: 1;
+}
+
+#popupContact{
+	display: none;
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 384px;
+	width: 408px;
+	background: #FFFFFF;
+	border: 2px solid #cecece;
+	z-index: 2;
+	padding: 12px;
+	font-family: "Calibri", serif;
+	font-size: 16px;
+}
+
+#popupContact h1{
+	text-align: left;
+	color: #6FA5FD;
+	font-size: 22px;
+	font-weight: 700;
+	border-bottom: 1px dotted #D3D3D3;
+	padding-bottom: 2px;
+	margin-bottom: 20px;
+}
+
+#popupContact h3{
+	font-size: 18px;
+	font-weight: 700;
+}
+
+img#loading {
+	position: absolute;
+	margin-left: 75%;
+	margin-top: 5%;
+	width: 35px;
+	height: 35px;
+}
+
+form#popupForm {
+	border: 1px dashed black;
+}
+
+div#uploadFormDiv p{
+	margin-left: 10px;
+}
+
+div#uploadFormDiv h3{
+	margin-left: 10px;
+}
+
+#popupContactClose1{
+	font-size: 20px;
+	line-height:14px;
+	right: 15px;
+	top: 10px;
+	position: absolute;
+	color: #6fa5fd;
+	font-weight: 700;
+	display: block;
+}
+
+#popupContactClose2{
+	font-size: 20px;
+	line-height:14px;
+	right: 40px;
+	top: 10px;
+	position: absolute;
+	color: #6fa5fd;
+	font-weight: 700;
+	display: block;
+}
+
+#buttonUpload {
+	font-family: "Calibri", serif;
+	font-size: 15px;
+}
+
+#fileToUpload {
+	font-family: "Calibri", serif;
+	font-size: 13px;
+}

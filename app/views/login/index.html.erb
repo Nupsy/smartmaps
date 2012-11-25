@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SmartMaps - Home page</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<%= csrf_meta_tags %>
+		<%= stylesheet_link_tag  "./home/main" %>
+		<%= stylesheet_link_tag  "./home/popup" %>
+		<%= stylesheet_link_tag  "./home/jquery.ui.all" %>
+		<%= stylesheet_link_tag  "./home/datePicker" %>
+		<%= javascript_include_tag  "http://maps.google.com/maps/api/js?sensor=false" %>
+		<%= javascript_include_tag  "./home/jquery-latest" %>
+		<%= javascript_include_tag  "./home/util" %>
+		<%= javascript_include_tag  "./home/popup" %>
+		<%= javascript_include_tag  "./home/main" %>
+		<%= javascript_include_tag  "./home/jquery.ui.core" %>
+		<%= javascript_include_tag  "./home/jquery.ui.datepicker" %>
+	</head>
+	<body onload="initialize()">
+		<div class="headerDiv">
+			<img src="./home/info.png" alt="" onclick="javascript:selectPopup('info')"/>
+			<a href="?run=logout">Logout</a>
+			<%= link_to "Administrators", administrators_path %>
+		</div>
+		<hr class="headerHr"/>
+		<div id="map_canvas"></div>
+		<div class="functionsDiv">
+			<img class="arrow" src="./home/left.png" alt="" onclick="javascript: arrowClicked(this);" onmouseover="javascript: arrowOver(this);" onmouseout="javascript: arrowOut(this);" title="Maximize map"/>
+			<img src="./home/full-extent.png" alt="" onclick="javascript: fullExtent();" onmouseover="javascript: fullExtentOver(this);" onmouseout="javascript: fullExtentOut(this);" title="Full-extent"/>
+			<img src="./home/move-mode.png" alt="" onclick="javascript: moveMode(this);" onmouseover="javascript: moveModeOver(this);" onmouseout="javascript: moveModeOut(this);" title="Drag&Drop Mode"/>
+		</div>
+		<div class="legend">
+			<p class="title">Legend</p>
+		</div>
+		<div id="popupContact">
+			<div id="uploadArea" style="display:none;">
+				<a id="popupContactClose1" href="Javascript:close()">x</a>
+			</div>
+			<div id="informationArea" style="display:none;">
+				<a id="popupContactClose2" href="Javascript:close()">x</a>
+				<h1>Informations</h1> 
+				<p><img class="arrow" src="assets/images/home/left.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase Map Size:</b> when clicked, adjusts the size of the map in your browser window, increasing the area of the map that is visible and hiding the legend.</p>
+				<p><img class="arrow" src="./home/right.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decrease Map Size:</b> when clicked, adjusts the size of the map in your browser window, decreasing the area of the map that is visible and showing back the legend.</p></p>
+				<p><img src="./home/full-extent.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full-Extent:</b> when clicked, automatically adjusts the maps's zoom to make all objects of all the categories selected in the legend visible to the user.</p>
+				<p><img src="./home/move-mode.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drag&Drop Mode:</b> when clicked once, enables the move mode where the user can drag any of the existing objects and place it in a new position, unless it is a system's default object. When the user clicks on this icon again, it is asked to confirm the operation and the changes are submitted to the database.</p>
+				<p><img src="./home/GeneralMarker.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creation Mode:</b> when the user performs a double-click in an area of the map where there is no object, a new spatial object is created. After that, the user must choose a category and fill the associated template.</p>
+				<p><img src="./home/GeneralMarker.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deletion Mode:</b> when the user performs a right-click on an existing spatial object, the object is deleted if it is not a system's default object. After, the system asks the user whether to delete the object permanently. If the user confirms the operation, the object is definitively removed, otherwise the operation is aborted.</p>
+				<p><img src="./home/greenMarker.png" alt="" height="25" width="25"/><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directions:</b> right-click on the map and calculate directions from the clicked location until another object.</p>
+			</div>
+		</div>  
+		<div id="backgroundPopup"></div>
+	</body>
+</html>
