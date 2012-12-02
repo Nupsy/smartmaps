@@ -21,30 +21,26 @@
 			<!-- Form Title Ends Here -->
 			<!-- Form Starts Here -->
 			<div class="form_box">
-				<form id="loginForm" name="loginform" action="login.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();" >
-					<p class="form_text"> * Username: </p>
-					<p class="form_input_BG"><input id="userInput" type="text" name="username" /></p>
-					<!-- Clear -->
-					<p class="clear">&nbsp; </p>
-					<!-- Clear -->
-					<!-- Password -->
-					<p class="form_text" style="margin-left:8px;"> * Password: </p>
-					<p id="passParagraph" class="form_input_BG">
-						<input id="passwordInput" type="password" name="password" />
-					</p>
-					<!-- Password -->
-					<!-- Clear -->
-					<p class="clear">&nbsp; </p>
-					<!-- Clear -->
-					<p class="form_login_signup_btn">
-						<%= image_submit_tag("./login/login_btn.png", :title => "Login now", :name => "login", :id => "submitInput") %>						
-						<%= link_to image_tag("./login/signup_btn.png", :controller => "users", :action => "new", :title => "Register now", :name => "signup", :id => "signup") %>	
-					</p>
-				</form>
+				<%= form_tag("/login/login", :method => "post", :id => "loginForm", :name => "loginform", :enctype => "multipart/form-data", :onsubmit => "return validateForm();") do %>
+				  <%= label_tag(:username, "Username: ", :class => "form_text") %>
+				  <p class="form_input_BG">
+					<%= text_field_tag :username, nil, :id => "userInput" %>
+				  </p>
+				  
+				  <br/>
+				  
+				  <%= label_tag(:password, "Password: ", :class => "form_text") %>
+				  <p id="passParagraph" class="form_input_BG">
+					<%= password_field_tag(:password, nil, :id => "passwordInput", :name => "password" ) %>
+				  </p>
+				  
+				  <br/>
+				  <p class="form_login_signup_btn">
+					<%= image_submit_tag("./login/login_btn.png", :title => "Login now", :name => "login", :id => "submitInput") %>				
+					<%= link_to image_tag("./login/signup_btn.png", :title => "Register now", :name => "signup", :id => "signup"), :controller => "users", :action => "new" %>	
+				  </p>
+				<% end %>
 			</div>
-			<!-- Form Ends Here -->
 		</div>
-		<!-- Main Body Ends Here -->
-        
     </body>
 </html>

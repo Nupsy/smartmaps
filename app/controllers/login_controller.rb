@@ -3,7 +3,7 @@ class LoginController < ApplicationController
 	
   end
   
-  def create
+  def login
     if user = User.authenticate(params[:username], params[:password])
       # Save the user ID in the session so it can be used in
       # subsequent requests

@@ -1,14 +1,11 @@
 Smartmaps::Application.routes.draw do
-  resources :administrators
-  resources :login
-  resources :register
-  
-  get "users/index"
 
   resources :users
-
-
+  resources :administrators
+  
   get "home/index"
+  get "users/index"
+  post "login/login"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
