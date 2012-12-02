@@ -1,5 +1,11 @@
 Smartmaps::Application.routes.draw do
   resources :administrators
+  resources :login
+  resources :register
+  
+  get "users/index"
+
+  resources :users
 
 
   get "home/index"

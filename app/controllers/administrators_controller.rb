@@ -2,7 +2,7 @@ class AdministratorsController < ApplicationController
   # GET /administrators
   # GET /administrators.json
   def index
-    @administrators = Administrator.all
+    @administrators = Administrator.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,10 +25,12 @@ class AdministratorsController < ApplicationController
   # GET /administrators/new.json
   def new
     @administrator = Administrator.new
-
+	@users = User.find_by_sql("SELECT USERS.USERNAME, USERS.ID FROM USERS WHERE USERS.ID NOT IN (SELECT ADMINISTRATORS.USER_ID FROM ADMINISTRATORS)")
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @administrator }
+	  format.json { render json: @users }
     end
   end
 
@@ -40,7 +42,7 @@ class AdministratorsController < ApplicationController
   # POST /administrators
   # POST /administrators.json
   def create
-    @administrator = Administrator.new(params[:administrator])
+    @administrator = Administrator.new(params[:Administrator])
 
     respond_to do |format|
       if @administrator.save

@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Name:</b>
+  <%= @administrator.user.name %>
+</p>
+
+<p>
   <b>Username:</b>
-  <%= @administrator.username %>
+  <%= @administrator.user.username %>
 </p>
 
 <p>
   <b>Email:</b>
-  <%= @administrator.email %>
+  <%= @administrator.user.email %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @administrator.user.birthdate %>
 </p>
 
 <%= link_to 'Edit', edit_administrator_path(@administrator) %> |
